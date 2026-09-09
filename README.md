@@ -12,8 +12,15 @@ The dataset (`creditcard.csv`, ~144 MB) is not included in this repo due to GitH
 
 ## Project Structure
 
+├── main.py
+├── requirements.txt
+├── templates/
+│   └── index.html
+└── static/
+    ├── style.css
+    └── script.js
+    
 - `Credit-Card-Fraud-Detection.ipynb` — data exploration, preprocessing, model training, and evaluation.
-- `app.py` — Streamlit app for an interactive live demo.
 - `fraud_model.pkl` — trained Random Forest model.
 - `sample.csv` — a small sample of real transactions (with true labels) for testing the demo.
 
@@ -34,7 +41,7 @@ A `RandomForestClassifier` (scikit-learn) trained on the dataset's 30 features (
 
 ```bash
 pip install -r requirements.txt
-streamlit run app.py
+uvicorn main:app --reload
 ```
 
 Upload a CSV of transactions (same columns as the training data), or use `sample.csv` to see the model in action on real transaction examples.
