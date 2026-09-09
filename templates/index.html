@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Credit Card Fraud Detector</title>
+  <link rel="stylesheet" href="{{ url_for('static', path='style.css') }}" />
+</head>
+<body>
+  <div class="app">
+    <header>
+      <h1>💳 Credit Card Fraud Detector</h1>
+      <p class="caption">
+        Upload transaction data and get instant fraud predictions from a trained Random Forest model.
+      </p>
+    </header>
+
+    <hr class="divider" />
+
+    <section class="card">
+      <h2>📁 Upload Transactions</h2>
+      <p>
+        Upload a CSV with the same columns as the training data
+        (<code>Time</code>, <code>V1</code>–<code>V28</code>, <code>Amount</code>) — no
+        <code>Class</code> column needed.
+      </p>
+
+      <div class="upload-row">
+        <input type="file" id="fileInput" accept=".csv" />
+        <button id="analyzeBtn">Analyze</button>
+      </div>
+    </section>
+
+    <hr class="divider" />
+
+    <div id="spinner" class="spinner hidden">
+      <div class="loader"></div>
+      <span>Analyzing transactions...</span>
+    </div>
+
+    <div id="errorBox" class="error hidden"></div>
+
+    <div id="results" class="results hidden">
+      <div class="success-banner" id="successBanner"></div>
+
+      <div class="metrics">
+        <div class="metric">
+          <div class="metric-label">Total Transactions</div>
+          <div class="metric-value" id="totalCount">0</div>
+        </div>
+        <div class="metric">
+          <div class="metric-label">Flagged as Fraud</div>
+          <div class="metric-value" id="fraudCount">0</div>
+        </div>
+      </div>
+
+      <table id="resultsTable">
+        <thead>
+          <tr>
+            <th>Prediction</th>
+            <th>Fraud Probability</th>
+          </tr>
+        </thead>
+        <tbody id="resultsBody"></tbody>
+      </table>
+    </div>
+  </div>
+
+  <script src="{{ url_for('static', path='script.js') }}"></script>
+</body>
+</html>
