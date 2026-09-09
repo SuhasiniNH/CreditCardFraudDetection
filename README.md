@@ -12,6 +12,7 @@ The dataset (`creditcard.csv`, ~144 MB) is not included in this repo due to GitH
 
 ## Project Structure
 \`\`\`
+fraud-detector/
 ├── main.py
 ├── requirements.txt
 ├── templates/
