@@ -12,6 +12,7 @@ The dataset (`creditcard.csv`, ~144 MB) is not included in this repo due to GitH
 
 ## Project Structure
 
+```text
 ├── main.py
 ├── requirements.txt
 ├── templates/
@@ -19,6 +20,7 @@ The dataset (`creditcard.csv`, ~144 MB) is not included in this repo due to GitH
 └── static/
     ├── style.css
     └── script.js
+
     
 - `Credit-Card-Fraud-Detection.ipynb` — data exploration, preprocessing, model training, and evaluation.
 - `fraud_model.pkl` — trained Random Forest model.
